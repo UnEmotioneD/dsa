@@ -1,0 +1,6 @@
+{
+  "watch": ["*.py"],
+  "ext": "py",
+  "ignore": [],
+  "exec": "python3 src/binary.py"
+}
