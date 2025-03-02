@@ -26,16 +26,18 @@
 
 Install Nodemon globally using npm:
 
-```zsh
+```sh
 npm install -g nodemon
 
 ```
 
 Verify the installation:
 
-```zsh
-nodemon -V
+```sh
+nodemon --version
 ```
+
+or with `-v`
 
 ---
 
@@ -43,7 +45,7 @@ nodemon -V
 
 To use Nodemon with a Python script, run:
 
-```zsh
+```sh
 nodemon --exec python3 --ext py binary_tree.py
 ```
 
@@ -55,7 +57,7 @@ Now, Nodemon will restart whenever `.py` file changes.
 
 If your project includes other file types (e.g., `.html`, `.css`) that should trigger a restart, specify them:
 
-```zsh
+```sh
 nodemon --exec python3 --ext py,html,css binary_tree.py
 ```
 
@@ -85,7 +87,7 @@ For advanced configurations, create a `nodemon.json` file in your project direct
 
 Simply execute:
 
-```zsh
+```sh
 nodemon
 ```
 
@@ -97,7 +99,7 @@ Nodemon will use the settings from `nodemon.json`.
 
 Exclude files or directories using the `--ignore` flag:
 
-```zsh
+```sh
 nodemon --exec python3 --ext py --ignore tests/* binary_tree.py
 ```
 
@@ -115,7 +117,7 @@ if you encounter a "command not found" error:
 - Add npm global packages to your PATH.
 - Alternatively, run Nodemon with `npx`:
 
-```zsh
+```sh
 npx nodemon --exc python3 --ext py binary_tree.py
 ```
 

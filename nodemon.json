@@ -2,5 +2,5 @@
   "watch": ["*.py"],
   "ext": "py",
   "ignore": [],
-  "exec": "python3 src/binary.py"
+  "exec": "python3 binary_tree.py"
 }
