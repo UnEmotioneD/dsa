@@ -28,7 +28,6 @@ Install Nodemon globally using npm:
 
 ```sh
 npm install -g nodemon
-
 ```
 
 Verify the installation:
