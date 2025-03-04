@@ -119,24 +119,24 @@ if __name__ == "__main__":
         deleteNumber = int(input("Type in a number you want to delete -> "))
         print("-" * 60)
         current = ROOT
-        parent = None
+        PARENT = None
         while True:
             print(current.data)
             if deleteNumber == current.data:
                 if current.left is None and current.right is None:
-                    delete_leaf(current, parent)
+                    delete_leaf(current, PARENT)
 
                 elif current.left is not None and current.right is None:
-                    if parent is None:
+                    if PARENT is None:
                         ROOT = current.left
                     else:
-                        delete_node_1_right(current, parent)
+                        delete_node_1_right(current, PARENT)
 
                 elif current.left is None and current.right is not None:
-                    if parent is None:
+                    if PARENT is None:
                         ROOT = current.right
                     else:
-                        delete_node_1_left(current, parent)
+                        delete_node_1_left(current, PARENT)
 
                 elif current.left is not None and current.right is not None:
                     delete_node_2child(current)
@@ -148,13 +148,13 @@ if __name__ == "__main__":
                 if current.left is None:
                     print(deleteNumber, "Not here")
                     break
-                parent = current
+                PARENT = current
                 current = current.left
             else:
                 if current.right is None:
                     print(deleteNumber, "Not here")
                     break
-                parent = current
+                PARENT = current
                 current = current.right
 
         print("Inorder: ", end=" ")
