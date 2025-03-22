@@ -66,7 +66,6 @@ random.shuffle(numbers)
 numAry = numbers
 
 if __name__ == "__main__":
-
     node = TreeNode()
     node.data = numAry[0]
     ROOT = node
