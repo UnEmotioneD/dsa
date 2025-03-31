@@ -2,5 +2,8 @@
   "watch": ["*.py"],
   "ext": "py",
   "ignore": [],
-  "exec": "python3 ./chap01/hanoi_tower.py"
+  "exec": "python3 ./chap01/hanoi_tower.py",
+  "events": {
+    "start": "clear"
+  }
 }
