@@ -2,5 +2,5 @@
   "watch": ["*.py"],
   "ext": "py",
   "ignore": [],
-  "exec": "python3 binary_tree.py"
+  "exec": "python3 ./chap01/hanoi_tower.py"
 }
