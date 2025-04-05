@@ -1,31 +1,27 @@
-def hanoi_tower(n: int, fr: str, temp: str, to: str):
+def hanoi_tower(n: int, fr: str, temp: str, to: str) -> None:
     if n == 1:
-        print("원판 1: %s --> %s" % (fr, to))
+        print(f"원판 1: {fr} --> {to}")
     else:
         hanoi_tower(n - 1, fr, to, temp)
-        print("원판 %d: %s --> %s" % (n, fr, to))
+        print(f"원판 {n}: {fr} --> {to}")
         hanoi_tower(n - 1, temp, fr, to)
 
 
 def main() -> None:
     number_of_plate: int = 0
 
-    go_nogo: bool = True
-    while go_nogo:
+    while True:
         print("=" * 30)
 
-        while True:
-            try:
-                number_of_plate = int(input("원판의 갯수를 입력하시오: "))
-                go_nogo = False
-            except ValueError:
-                print("정수를 입력하시오.")
-
-            if number_of_plate == 0:
+        try:
+            number_of_plate = int(input("원판의 갯수를 입력하시오: "))
+            if number_of_plate <= 0:
                 print("원판을 추가 하시오.")
-                go_nogo = True
-
+                continue
             break
+
+        except ValueError:
+            print("정수를 입력하시오.")
 
     first_pole: str = "A"
     second_pole: str = "B"
