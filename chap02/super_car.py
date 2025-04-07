@@ -1,18 +1,16 @@
-from car import car  # car class from car.py (module)
+from car import Car
 
 
-class super_car(car):
-    # super_car is child class of car class
-    def __init__(self, color, speed=0, b_turbo=True):
-        # constructor
+class SuperCar(Car):
+    def __init__(self, color: str, speed: int = 0, turbo: bool = True):
         super().__init__(color, speed)
-        self.b_turbo = b_turbo
+        self.turbo = turbo
 
-    def set_turbo(self, b_turbo=True):
-        self.b_turbo = b_turbo
+    def set_turbo(self, enabled: bool = True) -> None:
+        self.turbo = enabled
 
-    def speed_up(self):
-        if self.b_turbo:
+    def speed_up(self) -> None:
+        if self.turbo:
             self.speed += 50
         else:
             super().speed_up()
