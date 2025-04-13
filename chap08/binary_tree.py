@@ -12,7 +12,7 @@ def inorder(tree_node):
     if tree_node is None:
         return
     inorder(tree_node.left)
-    print(tree_node.data, end=" -> ")
+    print(tree_node.data, end=' -> ')
     inorder(tree_node.right)
 
 
@@ -65,7 +65,7 @@ numbers = list(range(10))
 random.shuffle(numbers)
 numAry = numbers
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     node = TreeNode()
     node.data = numAry[0]
     ROOT = node
@@ -92,31 +92,31 @@ if __name__ == "__main__":
 
     print(numAry)
 
-    findNumber = int(input("Type a number you want to search -> "))
+    findNumber = int(input('Type a number you want to search -> '))
     current = ROOT
     while True:
         print(current.data)
         if findNumber == current.data:
-            print(findNumber, "Found")
+            print(findNumber, 'Found')
             break
         elif findNumber < current.data:
             if current.left is None:
-                print(findNumber, "Not here")
+                print(findNumber, 'Not here')
                 break
             current = current.left
         else:
             if current.right is None:
-                print(findNumber, "Not here")
+                print(findNumber, 'Not here')
                 break
             current = current.right
 
-    print("Inorder: ", end=" ")
+    print('Inorder: ', end=' ')
     inorder(ROOT)
-    print("End")
+    print('End')
 
     while True:
-        deleteNumber = int(input("Type in a number you want to delete -> "))
-        print("-" * 60)
+        deleteNumber = int(input('Type in a number you want to delete -> '))
+        print('-' * 60)
         current = ROOT
         PARENT = None
         while True:
@@ -140,28 +140,28 @@ if __name__ == "__main__":
                 elif current.left is not None and current.right is not None:
                     delete_node_2child(current)
 
-                print(deleteNumber, "Deleted")
+                print(deleteNumber, 'Deleted')
                 break
 
             elif deleteNumber < current.data:
                 if current.left is None:
-                    print(deleteNumber, "Not here")
+                    print(deleteNumber, 'Not here')
                     break
                 PARENT = current
                 current = current.left
             else:
                 if current.right is None:
-                    print(deleteNumber, "Not here")
+                    print(deleteNumber, 'Not here')
                     break
                 PARENT = current
                 current = current.right
 
-        print("Inorder: ", end=" ")
+        print('Inorder: ', end=' ')
         inorder(ROOT)
-        print("End")
+        print('End')
 
-        print("Do you want to repeat? (y/n)")
+        print('Do you want to repeat? (y/n)')
         user_input = input()
-        if user_input.lower() == "n":
-            print("Terminated")
+        if user_input.lower() == 'n':
+            print('Terminated')
             break
