@@ -73,7 +73,10 @@ For advanced configurations, create a `nodemon.json` file in your project direct
   "watch": ["*.py"],
   "ext": "py",
   "ignore": [],
-  "exec": "python3 binary_tree.py"
+  "exec": "python3 ./binary_tree.py",
+  "events": {
+    "start": "clear"
+  }
 }
 ```
 
@@ -81,6 +84,7 @@ For advanced configurations, create a `nodemon.json` file in your project direct
 - `ext`: File extensions to watch.
 - `ignore`: Path to exclude.
 - `exec`: Command to run on changes.
+- `start`: Command to run on start.
 
 ## Running with Configuration File
 
@@ -130,7 +134,7 @@ npx nodemon --exc python3 --ext py binary_tree.py
 
 ### How to use python virtual environment
 
-[python-virtual-environment](venv.md)
+[python-virtual-environment](./doc/venv.md)
 
 ---
 
