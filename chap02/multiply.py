@@ -43,11 +43,20 @@ def multification() -> None:
                 print('\n')
 
 
+def mul_input() -> None:
+    base: int = int(input('enter base number for multification: '))
+    limit: int = int(input('enter limit number for multification: '))
+
+    for i in range(1, limit + 1):
+        print(f'{base} * {i} = {base * i}')
+
+
 def main() -> None:
     # mul_for()
     # mul_while()
     # mul_for_reverse()
-    multification()
+    # multification()
+    mul_input()
 
 
 if __name__ == '__main__':
