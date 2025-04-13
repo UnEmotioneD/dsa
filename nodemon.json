@@ -1,9 +1,0 @@
-{
-  "watch": ["*.py"],
-  "ext": "py",
-  "ignore": [],
-  "exec": "python3 ./chap02/super_car.py",
-  "events": {
-    "start": "clear"
-  }
-}
