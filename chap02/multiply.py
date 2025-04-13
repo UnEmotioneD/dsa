@@ -15,8 +15,6 @@ def mul_for() -> None:
     for n in range(1, 10):
         print(f'3x{n}: {3 * n}')
 
-    print('\n', '-' * 30 + '\n')
-
 
 def mul_while() -> None:
     print('With while loop\n')
@@ -26,8 +24,6 @@ def mul_while() -> None:
         print(f'3x{n}: {3 * n}')
         n = n + 1
 
-    print('\n', '-' * 30 + '\n')
-
 
 def mul_for_reverse() -> None:
     print('With for loop in reverse\n')
@@ -36,13 +32,22 @@ def mul_for_reverse() -> None:
     for n in range(9, 0, -1):
         print(f'3x{n} : {3 * n}')
 
-    print('\n', '-' * 30 + '\n')
+
+def multification() -> None:
+    for j in range(1, 10):
+        print(f'{j}단:', end=' ')
+        for k in range(1, 10):
+            print(f'{j * k:2}', end=' ')
+
+            if k == 9:
+                print('\n')
 
 
 def main() -> None:
-    mul_for()
-    mul_while()
-    mul_for_reverse()
+    # mul_for()
+    # mul_while()
+    # mul_for_reverse()
+    multification()
 
 
 if __name__ == '__main__':
