@@ -18,13 +18,13 @@ def celsius_fahrenheit() -> None:
 
 # 2.6
 def print_list_reverse() -> None:
-    theList: list = [1, 2, 3, 4]
+    the_list: list = [1, 2, 3, 4]
 
     # from -1 of list length
     # to index 0 (== -1 + 1)
     # by increment of -1
-    for i in range(len(theList) - 1, -1, -1):
-        print(f'{theList[i]}')
+    for i in range(len(the_list) - 1, -1, -1):
+        print(f'{the_list[i]}')
 
 
 # 2.8
@@ -33,11 +33,11 @@ def print_list_reverse() -> None:
 def string_upper_lower() -> None:
     msg: str = 'Data Structure in Python'
 
-    def to_upper_case(msg: str) -> str:
+    def to_upper_case(msg_to_upper: str) -> str:
         upper_msg: str = ''
 
-        for i in range(len(msg)):
-            c = msg[i]
+        for i in range(len(msg_to_upper)):
+            c = msg_to_upper[i]
             if 'a' <= c <= 'z':
                 upper_msg += chr(ord(c) - 32)
             else:
@@ -45,11 +45,11 @@ def string_upper_lower() -> None:
 
         return upper_msg
 
-    def to_lower_case(msg) -> str:
+    def to_lower_case(msg_to_lower) -> str:
         lower_msg = ''
 
-        for i in range(len(msg)):
-            c = msg[i]
+        for i in range(len(msg_to_lower)):
+            c = msg_to_lower[i]
             if 'A' <= c <= 'Z':
                 lower_msg += chr(ord(c) + 32)
             else:
