@@ -20,8 +20,7 @@ def factorial_iter(user_input: int) -> int:
 def factorial_recursion(number: int) -> int:
     if number == 1:
         return 1
-    else:
-        return number * factorial_recursion(number - 1)
+    return number * factorial_recursion(number - 1)
 
 
 def main() -> None:

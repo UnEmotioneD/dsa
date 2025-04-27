@@ -46,7 +46,9 @@ def main():
     insert(my_bag, 'baseball ball')
 
     print_list('Items in the bag: ', my_bag)
-    print(f'Duration of the first task: {(time.time() - start) * 1000:.6f} ms\n')
+    print(
+        f'Duration of the first task: {(time.time() - start) * 1000:.6f} ms\n'
+    )
 
     print('-' * 50 + '\n')
 
@@ -54,7 +56,9 @@ def main():
     remove(my_bag, 'handkerchief')
 
     print_list('Items in the bag: ', my_bag)
-    print(f'Duration of the second task: {(time.time() - start) * 1000:.6f} ms\n')
+    print(
+        f'Duration of the second task: {(time.time() - start) * 1000:.6f} ms\n'
+    )
     print('-' * 50 + '\n')
 
     target_item = input('Enter the name of the item to count: ')

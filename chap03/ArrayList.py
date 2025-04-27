@@ -13,8 +13,7 @@ class ArrayList:
     def get_entry(self, pos):
         if 0 <= pos < self.size:
             return self.array[pos]
-        else:
-            return None
+        return None
 
     def insert(self, pos, e):
         if not self.is_full() and 0 <= pos <= self.size:

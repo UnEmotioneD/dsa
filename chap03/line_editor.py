@@ -1,3 +1,5 @@
+import sys
+
 from ArrayList import ArrayList
 
 
@@ -29,7 +31,7 @@ def main() -> None:
             print()
 
         elif command == 'q':
-            exit()
+            sys.exit()
 
         elif command == 'l':
             filename = './chap03/test.txt'
