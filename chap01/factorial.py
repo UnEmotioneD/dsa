@@ -4,11 +4,11 @@ Page 37
 
 ---
 
-iteration and recursive
+factorial in iteration and recursion
 """
 
 
-def factorial_iter(user_input: int) -> int:
+def factorial_iteration(user_input: int) -> int:
     result: int = 1
 
     for i in range(1, user_input + 1):
@@ -24,9 +24,9 @@ def factorial_recursion(number: int) -> int:
 
 
 def main() -> None:
-    user_input = int(input('Integer to factorial: '))
+    user_input: int = int(input('Integer to factorial: '))
     print('-' * 40)
-    print(f'Iteration: {factorial_iter(user_input)}')
+    print(f'Iteration: {factorial_iteration(user_input)}')
     print(f'Resucsion: {factorial_recursion(user_input)}')
 
 
