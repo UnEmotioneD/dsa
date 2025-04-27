@@ -90,15 +90,48 @@ def harmonic_series() -> None:
             return 1.0
         return (1 / num) + harmonic_recur(num - 1)
 
-    # harmonic_iter(10)
+    harmonic_iter(10)
     print(f'Result: {harmonic_recur(user_input)}')
+
+
+# 2.11
+# binomial coefficient
+def binomial():
+    print('Binomial_coefficient.')
+    input_n: int = int(input('Enter value of n: '))
+    input_k: int = int(input('Enter value of k: '))
+
+    def bino_iter(n: int, k: int) -> int:
+        print(f'input_n: {n}')
+        print(f'input_k: {k}')
+
+        # factorial n
+        fac_n: int = 1
+        for i in range(1, n + 1):
+            fac_n *= i
+
+        # factorial k
+        fac_k: int = 1
+        for i in range(1, k + 1):
+            fac_k *= i
+
+        # factorial n - k
+        fac_sub: int = 1
+        for i in range(1, n - k + 1):
+            fac_sub *= i
+
+        return fac_n // (fac_k * fac_sub)
+
+    result = bino_iter(input_n, input_k)
+    print(f'Binomial coefficient (n choose k) is: {result}')
 
 
 def main() -> None:
     # print_list_reverse()
     # celsius_fahrenheit()
     # string_upper_lower()
-    harmonic_series()
+    # harmonic_series()
+    binomial()
 
 
 if __name__ == '__main__':
