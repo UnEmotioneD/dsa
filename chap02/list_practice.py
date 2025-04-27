@@ -105,25 +105,23 @@ def binomial():
         print(f'input_n: {n}')
         print(f'input_k: {k}')
 
-        # factorial n
-        fac_n: int = 1
-        for i in range(1, n + 1):
-            fac_n *= i
-
-        # factorial k
-        fac_k: int = 1
-        for i in range(1, k + 1):
-            fac_k *= i
-
-        # factorial n - k
-        fac_sub: int = 1
-        for i in range(1, n - k + 1):
-            fac_sub *= i
+        fac_n: int = factorial_iterative(n)
+        fac_k: int = factorial_iterative(k)
+        fac_sub: int = factorial_iterative(n - k)
 
         return fac_n // (fac_k * fac_sub)
 
     result = bino_iter(input_n, input_k)
     print(f'Binomial coefficient (n choose k) is: {result}')
+
+
+# 2.11-1
+def factorial_iterative(target: int) -> int:
+    result: int = 1
+    for i in range(1, target + 1):
+        result *= i
+
+    return result
 
 
 def main() -> None:
