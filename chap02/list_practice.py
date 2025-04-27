@@ -64,10 +64,41 @@ def string_upper_lower() -> None:
     print(f'Message in lower case: {to_lower_case(msg)}')
 
 
+# 2.10
+# 1 + 1/2 + ... + 1/n
+def harmonic_series() -> None:
+    user_input = int(
+        input('Enter natual number to calculate harmonic series to: ')
+    )
+
+    def harmonic_iter(num: int) -> None:
+        result: float = 0
+        for n in range(1, num + 1):
+            print(f'1/{n}', end='')
+            if n != num:
+                print(' + ', end='')
+            elif n == num:
+                print()
+            result = result + (1 / n)
+        print(f'result: {result}')
+
+    def harmonic_recur(num: int) -> float:
+        if num != 1:
+            print(f'1/{num} + ', end='')
+        if num == 1:
+            print('1')
+            return 1.0
+        return (1 / num) + harmonic_recur(num - 1)
+
+    # harmonic_iter(10)
+    print(f'Result: {harmonic_recur(user_input)}')
+
+
 def main() -> None:
     # print_list_reverse()
     # celsius_fahrenheit()
-    string_upper_lower()
+    # string_upper_lower()
+    harmonic_series()
 
 
 if __name__ == '__main__':
