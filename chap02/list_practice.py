@@ -119,7 +119,6 @@ def binomial():
 
         return fac_n // (fac_k * fac_sub)
 
-    # result = bino_iter(input_n, input_k)
     print(
         f'Binomial coefficient (n choose k, with iteration) is: {bino_iter(input_n, input_k)}'
     )
