@@ -111,8 +111,21 @@ def binomial():
 
         return fac_n // (fac_k * fac_sub)
 
-    result = bino_iter(input_n, input_k)
-    print(f'Binomial coefficient (n choose k) is: {result}')
+    def bino_recur(n: int, k: int) -> int:
+
+        fac_n: int = factorial_recursive(n)
+        fac_k: int = factorial_recursive(k)
+        fac_sub: int = factorial_recursive(n - k)
+
+        return fac_n // (fac_k * fac_sub)
+
+    # result = bino_iter(input_n, input_k)
+    print(
+        f'Binomial coefficient (n choose k, with iteration) is: {bino_iter(input_n, input_k)}'
+    )
+    print(
+        f'Binomial coefficient (n choose k, with recursion) is: {bino_recur(input_n, input_k)}'
+    )
 
 
 # 2.11-1
@@ -122,6 +135,14 @@ def factorial_iterative(target: int) -> int:
         result *= i
 
     return result
+
+
+# 2.11-2
+def factorial_recursive(target: int) -> int:
+    if target == 1:
+        return 1
+
+    return target * (factorial_recursive(target - 1))
 
 
 def main() -> None:
