@@ -85,9 +85,10 @@ def harmonic_series() -> None:
     def harmonic_recur(num: int) -> float:
         if num != 1:
             print(f'1/{num} + ', end='')
-        if num == 1:
+        elif num == 1:
             print('1')
             return 1.0
+
         return (1 / num) + harmonic_recur(num - 1)
 
     harmonic_iter(10)
