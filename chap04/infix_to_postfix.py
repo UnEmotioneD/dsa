@@ -5,7 +5,7 @@ chapter 04
 Page 150
 """
 
-from ArrayStack import ArrayStack
+from array_stack import ArrayStack
 
 
 def precedence(op):
