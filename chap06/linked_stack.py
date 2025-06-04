@@ -5,8 +5,9 @@ class Node:
 
 
 class LinkedStack:
-    def __init__(self):
+    def __init__(self, count=0):
         self.top = None
+        self.count = count
 
     def is_empty(self) -> bool:
         return self.top is None
@@ -16,11 +17,13 @@ class LinkedStack:
 
     def push(self, e) -> None:
         self.top = Node(e, self.top)
+        self.count += 1
 
     def pop(self):
         if not self.is_empty():
             n = self.top
             self.top = n.link
+            self.count -= 1
             return n.data
 
     def peek(self):
@@ -28,12 +31,7 @@ class LinkedStack:
             return self.top.data
 
     def size(self) -> int:
-        node = self.top
-        count: int = 0
-        while not node is None:
-            node = node.link
-            count += 1
-        return count
+        return self.count
 
     def __str__(self):
         arr = []
