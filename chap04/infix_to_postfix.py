@@ -1,10 +1,3 @@
-"""
-19102467 김찬희
-
-chapter 04
-Page 150
-"""
-
 from array_stack import ArrayStack
 
 

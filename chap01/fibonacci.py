@@ -1,13 +1,3 @@
-"""
-Chapter 01
-Page 45
-
----
-
-fibonacci sequence iteration recursive
-"""
-
-
 def fibonacci_recursive(seq: int) -> int:
     if seq <= 1:
         return seq
@@ -24,23 +14,23 @@ def fibonacci_iteration(seq: int) -> int:
         sec_last = last
         last = next_val
 
-        print(f"sec_last: {sec_last}")
-        print(f"last: {last}", end="\n\n")
+        print(f'sec_last: {sec_last}')
+        print(f'last: {last}', end='\n\n')
 
     return last
 
 
 def main() -> None:
-    user_input = int(input("Enter position in fibonacci sequence: "))
+    user_input = int(input('Enter position in fibonacci sequence: '))
     print()
     print(
-        f"{user_input}th value of fibonacci_recursive is: {fibonacci_recursive(user_input)}"
+        f'{user_input}th value of fibonacci_recursive is: {fibonacci_recursive(user_input)}'
     )
     print()
     print(
-        f"{user_input}th value of fibonacci_iteration is: {fibonacci_iteration(user_input)}"
+        f'{user_input}th value of fibonacci_iteration is: {fibonacci_iteration(user_input)}'
     )
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

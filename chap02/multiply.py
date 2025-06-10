@@ -1,13 +1,3 @@
-"""
-Chapter 02
-Page 61
-
----
-
-for/while loop multification
-"""
-
-
 def mul_for() -> None:
     print('With for loop\n')
 

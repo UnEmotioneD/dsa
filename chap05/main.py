@@ -1,11 +1,3 @@
-"""
-Chapter 05
-Page 173
----
-Execute circular queue
-"""
-
-
 from circular_dequeue import CircularDequeue
 from circular_queue import CircularQueue
 

@@ -1,13 +1,3 @@
-"""
-Chapter 01
-Page 37
-
----
-
-factorial in iteration and recursion
-"""
-
-
 def factorial_iteration(user_input: int) -> int:
     result: int = 1
 

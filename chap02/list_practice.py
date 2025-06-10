@@ -1,8 +1,3 @@
-"""
-Chapter 02 practice
-"""
-
-
 # 2.5
 def celsius_fahrenheit() -> None:
     cel: float = float(input('Enter temperature for celsius: '))

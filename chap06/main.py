@@ -1,8 +1,3 @@
-"""
-19102467 김찬희
-"""
-
-
 from linked_stack import LinkedStack
 
 
