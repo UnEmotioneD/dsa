@@ -12,7 +12,7 @@ class DoublyLinkedDequeue:
         self.size = 0
 
     def is_empty(self) -> bool:
-        return self.front == self.rear
+        return self.size == 0   # return True if empty
 
     def add_front(self) -> None:
         return None
