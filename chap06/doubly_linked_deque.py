@@ -16,7 +16,7 @@ class DoublyLinkedDeque:
 
     def add_front(self, item) -> None:
         # create node
-        #  "prev" is "None" because it's begin added to front-end of the deque
+        #  "prev" is "None" because it's being added to front-end of the deque
         #  "next" to point at what "front" is pointing currently
         node = DNode(item, None, self.front)
         if self.is_empty():
