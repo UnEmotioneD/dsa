@@ -75,4 +75,9 @@ class DoublyLinkedDequeue:
         return self.size
 
     def __str__(self):
-        return ''
+        arr = []
+        node = self.front  # starting point of scan
+        while node:
+            arr.append(node.data)
+            node = node.next  #  move node to point next
+        return str(arr)  # parse it to string before returning
