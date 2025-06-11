@@ -1,4 +1,4 @@
-from doubly_linked_deque import DoublyLinkedDequeue
+from doubly_linked_deque import DoublyLinkedDeque
 from linked_stack import LinkedStack
 
 
@@ -37,7 +37,7 @@ def run_linked_stack() -> None:
 
 
 def run_doubly_linked_stack() -> None:
-    dq = DoublyLinkedDequeue()
+    dq = DoublyLinkedDeque()
     print(f'is dq empty: {dq.is_empty()}')
     print(f'length of dq: {dq.length()}')
 

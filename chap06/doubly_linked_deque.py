@@ -5,7 +5,7 @@ class DNode:
         self.next = next
 
 
-class DoublyLinkedDequeue:
+class DoublyLinkedDeque:
     def __init__(self):
         self.front = None
         self.rear = None
@@ -16,7 +16,7 @@ class DoublyLinkedDequeue:
 
     def add_front(self, item) -> None:
         # create node
-        #  "prev" is "None" because it's begin added to front-end of the dequeue
+        #  "prev" is "None" because it's begin added to front-end of the deque
         #  "next" to point at what "front" is pointing currently
         node = DNode(item, None, self.front)
         if self.is_empty():
@@ -46,7 +46,7 @@ class DoublyLinkedDequeue:
             data = self.front.data  # get the data
             self.front = self.front.next  # move front
             # if the front is None after moving the front
-            #  which means the dequeue is now empty
+            #  which means the deque is now empty
             if self.front is None:
                 self.rear = None
             else:

@@ -1,7 +1,7 @@
 from circular_queue import CircularQueue
 
 
-class CircularDequeue(CircularQueue):
+class CircularDeque(CircularQueue):
     def __init__(self, capacity=10):
         super().__init__(capacity)
 

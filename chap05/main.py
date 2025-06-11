@@ -1,4 +1,4 @@
-from circular_dequeue import CircularDequeue
+from circular_deque import CircularDeque
 from circular_queue import CircularQueue
 
 
@@ -25,7 +25,7 @@ def run_cricular_queue():
 
 
 def run_cricular_dequeue():
-    dq = CircularDequeue()
+    dq = CircularDeque()
 
     for i in range(9):
         if i % 2 == 0:
