@@ -29,8 +29,16 @@ class DoublyLinkedDequeue:
             self.front = node
         self.size += 1
 
-    def add_rear(self) -> None:
-        return None
+    def add_rear(self, item) -> None:
+        node = DNode(item, self.rear, None)
+
+        if self.is_empty():
+            self.front = self.rear = node
+        else:
+            self.rear.next = node
+            self.rear = node
+
+        self.size += 1
 
     def delete_front(self):
         return None
