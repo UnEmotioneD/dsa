@@ -71,8 +71,8 @@ class DoublyLinkedDequeue:
             pass
         return data
 
-    def size(self) -> int:
-        return 0
+    def length(self) -> int:
+        return self.size
 
     def __str__(self):
         return ''
