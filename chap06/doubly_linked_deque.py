@@ -58,7 +58,18 @@ class DoublyLinkedDequeue:
         return data
 
     def delete_rear(self):
-        return None
+        data = None
+        if not self.is_empty():
+            data = self.rear.data
+            self.rear = self.rear.prev
+            if self.rear is None:
+                self.front = None
+            else:
+                self.rear.next = None
+            self.size -= 1
+        else:
+            pass
+        return data
 
     def size(self) -> int:
         return 0
