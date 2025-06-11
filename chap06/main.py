@@ -1,3 +1,4 @@
+from doubly_linked_deque import DoublyLinkedDequeue
 from linked_stack import LinkedStack
 
 
@@ -35,5 +36,26 @@ def run_linked_stack() -> None:
     print(stack)
 
 
+def run_doubly_linked_stack() -> None:
+    dq = DoublyLinkedDequeue()
+    print(f'is dq empty: {dq.is_empty()}')
+    print(f'length of dq: {dq.length()}')
+
+    for i in range(10):
+        if i % 2 == 0:
+            dq.add_rear(i)
+        else:
+            dq.add_front(i)
+    print(dq)
+
+    dq.delete_front()
+    dq.delete_rear()
+    print(dq)
+    print(f'is dq empty: {dq.is_empty()}')
+    print(f'length of dq: {dq.length()}')
+
+
 if __name__ == '__main__':
     run_linked_stack()
+    print('=' * 50, end='\n')
+    run_doubly_linked_stack()
