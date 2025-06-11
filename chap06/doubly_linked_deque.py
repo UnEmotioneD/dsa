@@ -6,9 +6,10 @@ class DNode:
 
 
 class DoublyLinkedDequeue:
-    def __init__(self, front=None, rear=None):
-        self.front = front
-        self.rear = rear
+    def __init__(self):
+        self.front = None
+        self.rear = None
+        self.size = 0
 
     def is_empty(self) -> bool:
         return self.front == self.rear
