@@ -41,7 +41,21 @@ class DoublyLinkedDequeue:
         self.size += 1
 
     def delete_front(self):
-        return None
+        data = None   # initialize data variable to return later
+        if not self.is_empty():
+            data = self.front.data  # get the data
+            self.front = self.front.next  # move front
+            # if the front is None after moving the front
+            #  which means the dequeue is now empty
+            if self.front is None:
+                self.rear = None
+            else:
+                # clear prev after delete
+                self.front.prev = None
+            self.size -= 1
+        else:
+            pass
+        return data
 
     def delete_rear(self):
         return None
