@@ -14,6 +14,9 @@ class DoublyLinkedDeque:
     def is_empty(self) -> bool:
         return self.size == 0   # return True if empty
 
+    def length(self) -> int:
+        return self.size
+
     def add_front(self, item) -> None:
         # create node
         #  "prev" is "None" because it's being added to front-end of the deque
@@ -71,8 +74,26 @@ class DoublyLinkedDeque:
             pass
         return data
 
-    def length(self) -> int:
-        return self.size
+    def delete(self, seq: int):
+        if not self.is_empty and self.size - 1 >= seq:
+            node = self.front
+            for _ in range(seq):
+                node = node.next
+            data = node.data
+
+            # if not last
+            if node.prev:
+                node.prev.next = node.next
+            else:
+                self.front = node.next
+            # if not first
+            if node.next:
+                node.next.prev = node.prev
+            else:
+                self.rear = node.prev
+
+            self.size -= 1
+            return data
 
     def __str__(self):
         arr = []
