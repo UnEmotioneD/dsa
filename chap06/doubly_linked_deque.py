@@ -14,8 +14,20 @@ class DoublyLinkedDequeue:
     def is_empty(self) -> bool:
         return self.size == 0   # return True if empty
 
-    def add_front(self) -> None:
-        return None
+    def add_front(self, item) -> None:
+        # create node
+        #  "prev" is "None" because it's begin added to front-end of the dequeue
+        #  "next" to point at what "front" is pointing currently
+        node = DNode(item, None, self.front)
+        if self.is_empty():
+            # font and rear to point at newly created node
+            self.front = self.rear = node
+        else:
+            # prev to point the new node
+            self.front.prev = node
+            # and move the front
+            self.front = node
+        self.size += 1
 
     def add_rear(self) -> None:
         return None
