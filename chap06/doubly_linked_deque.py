@@ -74,10 +74,12 @@ class DoublyLinkedDeque:
             pass
         return data
 
-    def delete(self, seq: int):
-        if not self.is_empty and self.size - 1 >= seq:
+    def delete(self, idx: int):
+        if idx < 0:
+            return None
+        if self.size - 1 >= idx:
             node = self.front
-            for _ in range(seq):
+            for _ in range(idx):
                 node = node.next
             data = node.data
 
