@@ -123,6 +123,18 @@ class DoublyLinkedDeque:
             self.size -= 1
             return data
 
+    def search(self, input):
+        curr = self.front
+        index = 0
+        result = []  # for searching for more then one
+        while curr:
+            if curr.data == input:
+                result.append(index)
+            curr = curr.next
+            index += 1
+        if len(result) != 0:
+            return result
+
     def reverse(self) -> None:
         curr = self.front
         for _ in range(self.size):
