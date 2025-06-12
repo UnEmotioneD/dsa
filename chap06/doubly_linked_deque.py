@@ -126,6 +126,13 @@ class DoublyLinkedDeque:
             self.size -= 1
             return data
 
+    def reverse(self) -> None:
+        curr = self.front
+        for _ in range(self.size):
+            curr.prev, curr.next = curr.next, curr.prev
+            curr = curr.prev
+        self.front, self.rear = self.rear, self.front
+
     def __str__(self):
         arr = []
         node = self.front  # starting point of scan
