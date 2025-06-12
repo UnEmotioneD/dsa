@@ -135,6 +135,15 @@ class DoublyLinkedDeque:
         if len(result) != 0:
             return result
 
+    def count(self, input):
+        curr = self.front
+        count = 0
+        while curr:
+            if curr.data == input:
+                count += 1
+            curr = curr.next
+        return count
+
     def reverse(self) -> None:
         curr = self.front
         for _ in range(self.size):

@@ -76,6 +76,8 @@ def run_doubly_linked_stack() -> None:
     print(f'Search index of item 1: {dq.search(1)}')
     print(f'Search index of item 11: {dq.search(11)}')
 
+    print(f"Count number of 1's: {dq.count(1)}")
+
     # can't use'em when empty
     print(f'Data of front: {dq.front.data}')
     print(f'Data of rear: {dq.rear.data}')
