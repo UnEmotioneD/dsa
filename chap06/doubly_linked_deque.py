@@ -132,10 +132,10 @@ class DoublyLinkedDeque:
 
     def __str__(self):
         arr = []
-        node = self.front  # starting point of scan
-        while node:
-            arr.append(node.data)
-            node = node.next  # move node to point next
+        curr = self.front  # starting point of scan
+        while curr:
+            arr.append(curr.data)
+            curr = curr.next  # move node to point next
         return str(arr)  # parse it to string before returning
 
     def __iter__(self):
