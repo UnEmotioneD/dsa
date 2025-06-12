@@ -12,7 +12,7 @@ class DoublyLinkedDeque:
         self.size = 0
 
     def is_empty(self) -> bool:
-        return self.size == 0   # return True if empty
+        return self.size == 0  # return True if empty
 
     def length(self) -> int:
         return self.size
@@ -73,7 +73,7 @@ class DoublyLinkedDeque:
             return node.data
 
     def delete_front(self):
-        data = None   # initialize data variable to return later
+        data = None  # initialize data variable to return later
         if not self.is_empty():
             data = self.front.data  # get the data
             self.front = self.front.next  # move front
@@ -131,5 +131,5 @@ class DoublyLinkedDeque:
         node = self.front  # starting point of scan
         while node:
             arr.append(node.data)
-            node = node.next  #  move node to point next
+            node = node.next  # move node to point next
         return str(arr)  # parse it to string before returning
