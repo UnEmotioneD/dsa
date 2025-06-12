@@ -43,6 +43,17 @@ class DoublyLinkedDeque:
 
         self.size += 1
 
+    def insert(self, item, idx: int) -> None:
+        front_node = self.front
+        # idx - 1 to insert to actual index rather than after
+        for _ in range(idx - 1):
+            front_node = front_node.next
+        back_node = front_node.next
+        node = DNode(item, front_node, back_node)
+        # pointer of nodes front and back to point the inserted node
+        front_node.next = node
+        back_node.prev = node
+        self.size += 1
     def delete_front(self):
         data = None   # initialize data variable to return later
         if not self.is_empty():
