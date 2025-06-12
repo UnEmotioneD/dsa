@@ -152,7 +152,7 @@ class DoublyLinkedDeque:
 
     def __iter__(self):
         curr = self.front
-        while curr.next:
+        while curr:
             # yield: return the value and comeback to where it left off
             yield curr.data
             curr = curr.next
