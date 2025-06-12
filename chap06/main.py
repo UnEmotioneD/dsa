@@ -38,21 +38,52 @@ def run_linked_stack() -> None:
 
 def run_doubly_linked_stack() -> None:
     dq = DoublyLinkedDeque()
-    print(f'is dq empty: {dq.is_empty()}')
-    print(f'length of dq: {dq.length()}')
+
+    print(dq)
+    print(f'Is dq empty: {dq.is_empty()}')
+    print(f'Size of dq: {dq.size}')
 
     for i in range(10):
         if i % 2 == 0:
             dq.add_rear(i)
         else:
             dq.add_front(i)
+
+    print(dq)
+    print(f'Is dq empty: {dq.is_empty()}')
+    print(f'Size of dq: {dq.size}')
+    print(f'Peek front: {dq.peek_front()}')
+    print(f'Peek rear: {dq.peek_rear()}')
+
+    print(f'Delete front: {dq.delete_front()}')
+    print(f'Delete rear: {dq.delete_rear()}')
     print(dq)
 
-    dq.delete_front()
-    dq.delete_rear()
+    print(f'Peek index 5: {dq.peek(5)}')
     print(dq)
-    print(f'is dq empty: {dq.is_empty()}')
-    print(f'length of dq: {dq.length()}')
+    print(f'Delete index 5: {dq.delete(5)}')
+    print(dq)
+    print('Insert 10 to index 5')
+    dq.insert(10, 5)
+    print(dq)
+
+    print('Reverse dq')
+    dq.reverse()
+    print('Add 1 to rear')
+    dq.add_rear(1)
+    print(dq)
+
+    print(f'Search index of item 1: {dq.search(1)}')
+    print(f'Search index of item 11: {dq.search(11)}')
+
+    # can't use'em when empty
+    print(f'Data of front: {dq.front.data}')
+    print(f'Data of rear: {dq.rear.data}')
+
+    # use of __iter__()
+    print(f'Sum of all elements in dq: {sum(dq)}')
+    print(f'Biggest value of dq: {max(dq)}')
+    print(f'Smallest value of dq: {min(dq)}')
 
 
 if __name__ == '__main__':
