@@ -54,6 +54,24 @@ class DoublyLinkedDeque:
         front_node.next = node
         back_node.prev = node
         self.size += 1
+
+    def peek_front(self):
+        if not self.is_empty():
+            return self.front.data
+
+    def peek_rear(self):
+        if not self.is_empty():
+            return self.rear.data
+
+    def peek(self, idx: int):
+        if idx < 0:
+            return None
+        if self.size - 1 >= idx:
+            node = self.front
+            for _ in range(idx):
+                node = node.next
+            return node.data
+
     def delete_front(self):
         data = None   # initialize data variable to return later
         if not self.is_empty():
