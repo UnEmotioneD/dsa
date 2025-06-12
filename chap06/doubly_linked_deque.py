@@ -140,3 +140,10 @@ class DoublyLinkedDeque:
             arr.append(node.data)
             node = node.next  # move node to point next
         return str(arr)  # parse it to string before returning
+
+    def __iter__(self):
+        curr = self.front
+        while curr.next:
+            # yield: return the value and comeback to where it left off
+            yield curr.data
+            curr = curr.next
