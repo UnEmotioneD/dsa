@@ -14,9 +14,6 @@ class DoublyLinkedDeque:
     def is_empty(self) -> bool:
         return self.size == 0  # return True if empty
 
-    def length(self) -> int:
-        return self.size
-
     def add_front(self, item) -> None:
         # create node
         #  "prev" is "None" because it's being added to front-end of the deque
