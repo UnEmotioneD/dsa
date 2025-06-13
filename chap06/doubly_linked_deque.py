@@ -31,13 +31,11 @@ class DoublyLinkedDeque:
 
     def add_rear(self, item) -> None:
         node = DNode(item, self.rear, None)
-
         if self.is_empty():
             self.front = self.rear = node
         else:
             self.rear.next = node
             self.rear = node
-
         self.size += 1
 
     def insert(self, item, idx: int) -> None:
@@ -70,7 +68,6 @@ class DoublyLinkedDeque:
             return node.data
 
     def delete_front(self):
-        data = None  # initialize data variable to return later
         if not self.is_empty():
             data = self.front.data  # get the data
             self.front = self.front.next  # move front
@@ -82,12 +79,9 @@ class DoublyLinkedDeque:
                 # clear prev after delete
                 self.front.prev = None
             self.size -= 1
-        else:
-            pass
-        return data
+            return data
 
     def delete_rear(self):
-        data = None
         if not self.is_empty():
             data = self.rear.data
             self.rear = self.rear.prev
@@ -96,9 +90,7 @@ class DoublyLinkedDeque:
             else:
                 self.rear.next = None
             self.size -= 1
-        else:
-            pass
-        return data
+            return data
 
     def delete(self, idx: int):
         if idx < 0:
@@ -162,6 +154,5 @@ class DoublyLinkedDeque:
     def __iter__(self):
         curr = self.front
         while curr:
-            # yield: return the value and comeback to where it left off
-            yield curr.data
+            yield curr.data   # return the value and comeback to where it left off
             curr = curr.next
