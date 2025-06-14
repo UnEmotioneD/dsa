@@ -115,23 +115,23 @@ class DoublyLinkedDeque:
             self.size -= 1
             return data
 
-    def search(self, input):
+    def search(self, arg):
         curr = self.front
         index = 0
         result = []  # for searching for more then one
         while curr:
-            if curr.data == input:
+            if curr.data == arg:
                 result.append(index)
             curr = curr.next
             index += 1
         if len(result) != 0:
             return result
 
-    def count(self, input):
+    def count(self, arg):
         curr = self.front
         count = 0
         while curr:
-            if curr.data == input:
+            if curr.data == arg:
                 count += 1
             curr = curr.next
         return count
