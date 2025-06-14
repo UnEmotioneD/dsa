@@ -12,18 +12,18 @@ class ArrayStack:
 
     def push(self, item):
         if self.is_full():
-            raise IndexError('Pusning to full stack')
+            raise IndexError('Pushing to full stack.')
         self._top += 1
         self._array[self._top] = item
 
     def pop(self):
         if self.is_empty():
-            raise IndexError('Popping from empty stack')
+            raise IndexError('Popping from empty stack.')
         item = self._array[self._top]
         self._top -= 1
         return item
 
     def peek(self):
         if self.is_empty():
-            raise IndexError('Peeking from empty stack')
+            raise IndexError('Peeking from empty stack.')
         return self._array[self._top]
