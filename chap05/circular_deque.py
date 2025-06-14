@@ -24,15 +24,14 @@ class CircularDeque(CircularQueue):
             pass
 
     def delete_rear(self):
-        if not self.is_empty():
-            item = self.array[self.rear]
-            self.rear = (self.rear - 1 + self.capacity) % self.capacity
-            return item
-        else:
-            pass
+        if self.is_empty():
+            raise IndexError('Queue is empty')
+
+        item = self.array[self.rear]
+        self.rear = (self.rear - 1 + self.capacity) % self.capacity
+        return item
 
     def get_rear(self):
-        if not self.is_empty():
-            return self.array[self.rear]
-        else:
-            pass
+        if self.is_empty():
+            raise IndexError('Queue is empty')
+        return self.array[self.rear]
