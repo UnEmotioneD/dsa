@@ -25,29 +25,29 @@ def run_cricular_queue():
 
 
 def run_cricular_dequeue():
-    dq = CircularDeque()
+    deq = CircularDeque()
 
     for i in range(9):
         if i % 2 == 0:
-            dq.add_rear(i)
+            deq.add_rear(i)
         else:
-            dq.add_front(i)
+            deq.add_front(i)
 
-    print(f'Odd number -> front, Even number -> rear: {dq}')
+    print(f'Odd number -> front, Even number -> rear: {deq}')
 
-    dq.delete_front()
-    dq.delete_front()
+    deq.delete_front()
+    deq.delete_front()
 
-    dq.delete_rear()
-    dq.delete_rear()
-    dq.delete_rear()
+    deq.delete_rear()
+    deq.delete_rear()
+    deq.delete_rear()
 
-    print(f'delete front twice and rear 3 times: {dq}')
+    print(f'delete front twice and rear 3 times: {deq}')
 
     for i in range(9, 14):
-        dq.add_front(i)
+        deq.add_front(i)
 
-    print(f'add front 9 to 13: {dq}')
+    print(f'add front 9 to 13: {deq}')
 
 
 def main() -> None:
