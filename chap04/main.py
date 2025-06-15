@@ -8,8 +8,9 @@ def run_check_brackets(stmt):
     print(f'{stmt} -> {checker.check_brackets()}')
 
 
-def run_infix(infix):
+def run_infix_2_postfix(infix):
     print(f'중위표기: {" ".join(infix)}')
+
     postfix = Infix2Postfix(infix).infix_2_postfix()
     print(f'후위표기: {" ".join(postfix)}')
 
@@ -37,6 +38,6 @@ if __name__ == '__main__':
     print()
     print('Statement to infix and evaluate.')
     print('-' * 50)
-    run_infix(infix1)
+    run_infix_2_postfix(infix1)
     print()
-    run_infix(infix2)
+    run_infix_2_postfix(infix2)
