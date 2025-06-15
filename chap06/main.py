@@ -21,7 +21,7 @@ def run_linked_stack() -> None:
 
     print(f'Is stack empty? {stack.is_empty()}')
 
-    print(f'size of linked_stack: {stack.size()}')
+    print(f'size of linked_stack: {stack.count}')
 
     print(f'peek: {stack.peek()}')
     print(f'pop: {stack.pop()}')

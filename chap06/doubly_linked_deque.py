@@ -51,12 +51,14 @@ class DoublyLinkedDeque:
         self.size += 1
 
     def peek_front(self):
-        if not self.is_empty():
-            return self.front.data
+        if self.is_empty():
+            raise IndexError('Peeking from empty stack.')
+        return self.front.data
 
     def peek_rear(self):
-        if not self.is_empty():
-            return self.rear.data
+        if self.is_empty():
+            raise IndexError('Peeking from empty stack.')
+        return self.rear.data
 
     def peek(self, idx: int):
         if idx < 0:
