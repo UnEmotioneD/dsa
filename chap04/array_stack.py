@@ -1,8 +1,8 @@
 class ArrayStack:
-    def __init__(self, capacity):
-        self._capacity = capacity
+    def __init__(self, capacity: int):
+        self._capacity: int = capacity
         self._array = [None] * capacity
-        self._top = -1
+        self._top: int = -1
 
     def is_empty(self):
         return self._top == -1
