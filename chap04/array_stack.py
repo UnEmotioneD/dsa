@@ -27,3 +27,12 @@ class ArrayStack:
         if self.is_empty():
             raise IndexError('Peeking from empty stack.')
         return self._array[self._top]
+
+    def __str__(self):
+        return str(self._array[: self._top + 1])
+
+    def __iter__(self):
+        index: int = self._top
+        while index != -1:
+            yield self._array[index]
+            index -= 1
