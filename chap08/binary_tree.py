@@ -99,7 +99,7 @@ if __name__ == '__main__':
         if findNumber == current.data:
             print(findNumber, 'Found')
             break
-        elif findNumber < current.data:
+        if findNumber < current.data:
             if current.left is None:
                 print(findNumber, 'Not here')
                 break
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                 print(deleteNumber, 'Deleted')
                 break
 
-            elif deleteNumber < current.data:
+            if deleteNumber < current.data:
                 if current.left is None:
                     print(deleteNumber, 'Not here')
                     break
