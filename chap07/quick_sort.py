@@ -37,7 +37,7 @@ def quick_sort(arr, low, high):
         quick_sort(arr, part_index + 1, high)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     array = [4, 3, 8, 1, 2, 5, 9, 7, 0, 6]
     LENGTH = len(array)
 
@@ -46,8 +46,8 @@ if __name__ == '__main__':
     end = time.time()
 
     for val in array:
-        print(val, end=' ')
+        print(val, end=" ")
         if val == array[LENGTH - 1]:
             print()
 
-    print(f'Time took: {end - start}')
+    print(f"Time took: {end - start}")

@@ -8,17 +8,17 @@ class CheckBrackets:
 
     def check_brackets(self):
         for char in self._statement:
-            if char in ('(', '{', '['):
+            if char in ("(", "{", "["):
                 self._stack.push(char)
-            elif char in (')', '}', ']'):
+            elif char in (")", "}", "]"):
                 if self._stack.is_empty():
                     return False
                 if not self._stack.is_empty():
                     left = self._stack.pop()
-                    if char == ')' and left != '(':
+                    if char == ")" and left != "(":
                         return False
-                    if char == '}' and left != '{':
+                    if char == "}" and left != "{":
                         return False
-                    if char == ']' and left != '[':
+                    if char == "]" and left != "[":
                         return False
             return self._stack.is_empty()

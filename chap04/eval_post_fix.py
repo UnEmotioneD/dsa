@@ -8,16 +8,16 @@ class EvalPostFix:
 
     def eval_post_fix(self):
         for token in self._expr:
-            if token in '+-*/':
+            if token in "+-*/":
                 val2 = self._stack.pop()
                 val1 = self._stack.pop()
-                if token == '+':
+                if token == "+":
                     self._stack.push(val1 + val2)
-                elif token == '-':
+                elif token == "-":
                     self._stack.push(val1 - val2)
-                elif token == '*':
+                elif token == "*":
                     self._stack.push(val1 * val2)
-                elif token == '/':
+                elif token == "/":
                     self._stack.push(val1 / val2)
             else:
                 self._stack.push(float(token))

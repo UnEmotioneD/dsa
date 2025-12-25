@@ -10,4 +10,4 @@ class Car:
         self.speed -= 10
 
     def __str__(self) -> str:
-        return f'{self.__class__.__name__}(Color: {self.color}, Speed: {self.speed})'
+        return f"{self.__class__.__name__}(Color: {self.color}, Speed: {self.speed})"

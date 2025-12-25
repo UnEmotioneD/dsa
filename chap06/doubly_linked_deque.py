@@ -52,12 +52,12 @@ class DoublyLinkedDeque:
 
     def peek_front(self):
         if self.is_empty():
-            raise IndexError('Peeking from empty stack.')
+            raise IndexError("Peeking from empty stack.")
         return self.front.data
 
     def peek_rear(self):
         if self.is_empty():
-            raise IndexError('Peeking from empty stack.')
+            raise IndexError("Peeking from empty stack.")
         return self.rear.data
 
     def peek(self, idx: int):
@@ -156,5 +156,5 @@ class DoublyLinkedDeque:
     def __iter__(self):
         curr = self.front
         while curr:
-            yield curr.data   # return the value and comeback to where it left off
+            yield curr.data  # return the value and comeback to where it left off
             curr = curr.next

@@ -36,12 +36,12 @@ class Node:
     """
 
     data: int
-    left: Optional['Node'] = None
-    right: Optional['Node'] = None
+    left: Optional["Node"] = None
+    right: Optional["Node"] = None
 
     def __str__(self) -> str:
         """Return a string representation of the node."""
-        return f'Node({self.data})'
+        return f"Node({self.data})"
 
 
 class BinarySearchTree:
@@ -99,11 +99,11 @@ class BinarySearchTree:
             if node is None:
                 return
             _inorder(node.left)
-            print(node.data, end=' -> ')
+            print(node.data, end=" -> ")
             _inorder(node.right)
 
         _inorder(self.root)
-        print('End')
+        print("End")
 
     def delete(self, data: int) -> None:
         """Delete the node with the specified data from the BST, if it exists."""
@@ -159,7 +159,7 @@ def main() -> None:
     # Create a shuffled list of numbers from 0 to 9.
     numbers = list(range(10))
     random.shuffle(numbers)
-    print('Numbers:', numbers)
+    print("Numbers:", numbers)
 
     # Build the BST from the shuffled numbers.
     bst = BinarySearchTree()
@@ -168,37 +168,37 @@ def main() -> None:
 
     # Search for a user-specified number.
     try:
-        find_number = int(input('Type a number you want to search -> '))
+        find_number = int(input("Type a number you want to search -> "))
     except ValueError:
-        print('Invalid input. Exiting.')
+        print("Invalid input. Exiting.")
         return
 
     if bst.search(find_number):
-        print(f'{find_number} found in the BST.')
+        print(f"{find_number} found in the BST.")
     else:
-        print(f'{find_number} not found in the BST.')
+        print(f"{find_number} not found in the BST.")
 
-    print('Inorder traversal:')
+    print("Inorder traversal:")
     bst.inorder_traversal()
 
     # Repeatedly prompt the user for a number to delete.
     while True:
         try:
-            delete_number = int(input('Type in a number you want to delete -> '))
+            delete_number = int(input("Type in a number you want to delete -> "))
         except ValueError:
-            print('Invalid input. Please enter an integer.')
+            print("Invalid input. Please enter an integer.")
             continue
 
         bst.delete(delete_number)
-        print(f'{delete_number} deleted (if it existed).')
-        print('Inorder traversal after deletion:')
+        print(f"{delete_number} deleted (if it existed).")
+        print("Inorder traversal after deletion:")
         bst.inorder_traversal()
 
-        repeat = input('Do you want to delete another number? (y/n): ')
-        if repeat.lower() == 'n':
-            print('Terminated')
+        repeat = input("Do you want to delete another number? (y/n): ")
+        if repeat.lower() == "n":
+            print("Terminated")
             break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

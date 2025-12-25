@@ -21,7 +21,7 @@ class LinkedStack:
 
     def pop(self):
         if self.is_empty():
-            raise IndexError('Popping from empty stack.')
+            raise IndexError("Popping from empty stack.")
         n = self._top
         self._top = n.link
         self.count -= 1
@@ -29,7 +29,7 @@ class LinkedStack:
 
     def peek(self):
         if self.is_empty():
-            raise IndexError('Peeking from empty stack.')
+            raise IndexError("Peeking from empty stack.")
         return self._top.data
 
     def __str__(self):

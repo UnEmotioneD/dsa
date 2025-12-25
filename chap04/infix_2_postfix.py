@@ -7,11 +7,11 @@ class Infix2Postfix:
         self._expr = expr
 
     def precedence(self, op):
-        if op in ('(', ')'):
+        if op in ("(", ")"):
             return 0
-        if op in ('+', '-'):
+        if op in ("+", "-"):
             return 1
-        if op in ('*', '/'):
+        if op in ("*", "/"):
             return 2
         return -1
 
@@ -19,15 +19,15 @@ class Infix2Postfix:
         output = []
 
         for term in self._expr:
-            if term == '(':
+            if term == "(":
                 self._stack.push(term)
-            elif term == ')':
+            elif term == ")":
                 while not self._stack.is_empty():
                     op = self._stack.pop()
-                    if op == '(':
+                    if op == "(":
                         break
                     output.append(op)
-            elif term in ('+', '-', '*', '/'):
+            elif term in ("+", "-", "*", "/"):
                 while not self._stack.is_empty():
                     op = self._stack.peek()
                     if self.precedence(term) <= self.precedence(op):

@@ -19,9 +19,9 @@ def main() -> None:
 
     smallest, largest = min_max(data)
 
-    print(f'Smallest value: {smallest}')
-    print(f'Biggest value: {largest}')
+    print(f"Smallest value: {smallest}")
+    print(f"Biggest value: {largest}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

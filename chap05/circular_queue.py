@@ -14,7 +14,7 @@ class CircularQueue:
 
     def enqueue(self, item) -> None:
         if self.is_full():
-            raise IndexError('Queue is Full.')
+            raise IndexError("Queue is Full.")
         # move rear backward
         #  if rear == capacity move is to start
         self.rear = (self.rear + 1) % self.capacity
@@ -22,7 +22,7 @@ class CircularQueue:
 
     def dequeue(self):
         if self.is_empty():
-            raise IndexError('Queue is empty.')
+            raise IndexError("Queue is empty.")
         # move front backward
         #  since it is pointing at the empty slot front of the element
         self.front = (self.front + 1) % self.capacity
@@ -30,7 +30,7 @@ class CircularQueue:
 
     def peek(self):
         if self.is_empty():
-            raise IndexError('Queue is empty.')
+            raise IndexError("Queue is empty.")
         return self.array[(self.front + 1) % self.capacity]
 
     def size(self):
@@ -38,13 +38,12 @@ class CircularQueue:
 
     def __str__(self) -> str:
         if self.is_empty():
-            return '[]'
+            return "[]"
         if self.front < self.rear:
             return str(self.array[self.front + 1 : self.rear + 1])
         # if front is pointing back of rear
         #  front to the end
         #  then index 0 to the rear
         return str(
-            self.array[self.front + 1 : self.capacity]
-            + self.array[0 : self.rear + 1]
+            self.array[self.front + 1 : self.capacity] + self.array[0 : self.rear + 1]
         )

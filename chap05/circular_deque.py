@@ -18,7 +18,7 @@ class CircularDeque(CircularQueue):
     # New methods
     def add_front(self, item):
         if self.is_full():
-            raise IndexError('Deque if full.')
+            raise IndexError("Deque if full.")
         # front points at the empty slot by default
         #  add the new item where the front is pointing
         self.array[self.front] = item
@@ -27,12 +27,12 @@ class CircularDeque(CircularQueue):
 
     def delete_rear(self):
         if self.is_empty():
-            raise IndexError('Queue is empty.')
+            raise IndexError("Queue is empty.")
         item = self.array[self.rear]
         self.rear = (self.rear - 1 + self.capacity) % self.capacity
         return item
 
     def get_rear(self):
         if self.is_empty():
-            raise IndexError('Queue is empty.')
+            raise IndexError("Queue is empty.")
         return self.array[self.rear]

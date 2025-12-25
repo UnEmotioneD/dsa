@@ -14,11 +14,11 @@ def factorial_recursion(number: int) -> int:
 
 
 def main() -> None:
-    user_input: int = int(input('Integer to factorial: '))
-    print('-' * 40)
-    print(f'Iteration: {factorial_iteration(user_input)}')
-    print(f'Resucsion: {factorial_recursion(user_input)}')
+    user_input: int = int(input("Integer to factorial: "))
+    print("-" * 40)
+    print(f"Iteration: {factorial_iteration(user_input)}")
+    print(f"Resucsion: {factorial_recursion(user_input)}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
