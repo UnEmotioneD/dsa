@@ -105,4 +105,4 @@ Using virtual environments ensures your Python projects remain isolated and free
 
 ---
 
-Happy Hacking! 🎉
+### Happy Hacking! 🎉
