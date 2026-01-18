@@ -1,6 +1,7 @@
 # Using Nodemon with Python
 
-- Nodemon is a utility that monitors changes in your source code and automatically restarts your application. While it's primarily used for Node.js applications, you can also use it to streamline Python development.\_
+- Nodemon is a utility that monitors changes in your source code and automatically restarts your application.
+  While it's primarily used for Node.js applications, you can also use it to streamline Python development.
 
 ## Table of Contents
 
@@ -134,7 +135,7 @@ npx nodemon --exc python3 --ext py binary_tree.py
 
 ### How to use python virtual environment
 
-[python-virtual-environment](./doc/venv.md)
+[python-virtual-environment](./venv.md)
 
 ---
 
