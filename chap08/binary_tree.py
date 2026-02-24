@@ -57,25 +57,25 @@ def delete_node_2child(two_child_node):
 
 
 memory = []
-ROOT = None
+root = None
 
 # Create a list of numbers from 0 to 9
 # Shuffle the list
 numbers = list(range(10))
 random.shuffle(numbers)
-numAry = numbers
+num_arr = numbers
 
 if __name__ == "__main__":
     node = TreeNode()
-    node.data = numAry[0]
-    ROOT = node
+    node.data = num_arr[0]
+    root = node
     memory.append(node)
 
-    for number in numAry[1:]:
+    for number in num_arr[1:]:
         node = TreeNode()
         node.data = number
 
-        current = ROOT
+        current = root
         while True:
             if number < current.data:
                 if current.left is None:
@@ -90,74 +90,74 @@ if __name__ == "__main__":
 
         memory.append(node)
 
-    print(numAry)
+    print(num_arr)
 
-    findNumber = int(input("Type a number you want to search -> "))
-    current = ROOT
+    find_num = int(input("Type a number you want to search -> "))
+    current = root
     while True:
         print(current.data)
-        if findNumber == current.data:
-            print(findNumber, "Found")
+        if find_num == current.data:
+            print(find_num, "Found")
             break
-        if findNumber < current.data:
+        if find_num < current.data:
             if current.left is None:
-                print(findNumber, "Not here")
+                print(find_num, "Not here")
                 break
             current = current.left
         else:
             if current.right is None:
-                print(findNumber, "Not here")
+                print(find_num, "Not here")
                 break
             current = current.right
 
     print("Inorder: ", end=" ")
-    inorder(ROOT)
+    inorder(root)
     print("End")
 
     while True:
-        deleteNumber = int(input("Type in a number you want to delete -> "))
+        del_num = int(input("Type in a number you want to delete -> "))
         print("-" * 60)
-        current = ROOT
-        PARENT = None
+        current = root
+        parent = None
         while True:
             print(current.data)
-            if deleteNumber == current.data:
+            if del_num == current.data:
                 if current.left is None and current.right is None:
-                    delete_leaf(current, PARENT)
+                    delete_leaf(current, parent)
 
                 elif current.left is not None and current.right is None:
-                    if PARENT is None:
-                        ROOT = current.left
+                    if parent is None:
+                        root = current.left
                     else:
-                        delete_node_1_right(current, PARENT)
+                        delete_node_1_right(current, parent)
 
                 elif current.left is None and current.right is not None:
-                    if PARENT is None:
-                        ROOT = current.right
+                    if parent is None:
+                        root = current.right
                     else:
-                        delete_node_1_left(current, PARENT)
+                        delete_node_1_left(current, parent)
 
                 elif current.left is not None and current.right is not None:
                     delete_node_2child(current)
 
-                print(deleteNumber, "Deleted")
+                print(del_num, "Deleted")
                 break
 
-            if deleteNumber < current.data:
+            if del_num < current.data:
                 if current.left is None:
-                    print(deleteNumber, "Not here")
+                    print(del_num, "Not here")
                     break
-                PARENT = current
+                parent = current
                 current = current.left
             else:
                 if current.right is None:
-                    print(deleteNumber, "Not here")
+                    print(del_num, "Not here")
                     break
-                PARENT = current
+                parent = current
                 current = current.right
 
         print("Inorder: ", end=" ")
-        inorder(ROOT)
+        inorder(root)
         print("End")
 
         print("Do you want to repeat? (y/n)")
