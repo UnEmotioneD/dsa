@@ -143,7 +143,3 @@ npx nodemon --exc python3 --ext py binary_tree.py
 
 Using Nodemon with Python automates the restart process of your scripts upon code changes, enhancing your development workflow.
 Customize Nodemon to fit your project's needs and focus more on coding.
-
----
-
-Happy Hacking! 🎉
