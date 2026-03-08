@@ -133,12 +133,6 @@ npx nodemon --exc python3 --ext py binary_tree.py
 
 ---
 
-### How to use python virtual environment
-
-[python-virtual-environment](./venv.md)
-
----
-
 ## Conclusion
 
 Using Nodemon with Python automates the restart process of your scripts upon code changes, enhancing your development workflow.
