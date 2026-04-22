@@ -15,7 +15,7 @@ Usage:
     - Display an inorder traversal of the BST.
     - Allow the user to delete nodes repeatedly until termination.
 
-Author: UnEmotioned
+Author: UnEmotioneD
 Date: 2023-11
 """
 
