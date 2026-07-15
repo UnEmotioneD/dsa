@@ -23,7 +23,7 @@ def mul_for_reverse() -> None:
         print(f"3x{n} : {3 * n}")
 
 
-def multification() -> None:
+def multiplication() -> None:
     for j in range(1, 10):
         print(f"{j}단:", end=" ")
         for k in range(1, 10):
@@ -34,8 +34,8 @@ def multification() -> None:
 
 
 def mul_input() -> None:
-    base: int = int(input("enter base number for multification: "))
-    limit: int = int(input("enter limit number for multification: "))
+    base: int = int(input("enter base number for multiplication: "))
+    limit: int = int(input("enter limit number for multiplication: "))
 
     for i in range(1, limit + 1):
         print(f"{base} * {i} = {base * i}")
@@ -45,7 +45,7 @@ def main() -> None:
     # mul_for()
     # mul_while()
     # mul_for_reverse()
-    # multification()
+    # multifunction()
     mul_input()
 
 

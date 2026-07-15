@@ -62,7 +62,7 @@ def string_upper_lower() -> None:
 # 2.10
 # 1 + 1/2 + ... + 1/n
 def harmonic_series() -> None:
-    user_input = int(input("Enter natual number to calculate harmonic series to: "))
+    user_input = int(input("Enter natural number to calculate harmonic series to: "))
 
     def harmonic_iter(num: int) -> None:
         result: float = 0
@@ -89,9 +89,9 @@ def harmonic_series() -> None:
 
 
 # 2.11
-# binomial coefficient
-def binomial():
-    print("Binomial_coefficient.")
+# binominal coefficient
+def binominal():
+    print("Binominal_coefficient.")
     input_n: int = int(input("Enter value of n: "))
     input_k: int = int(input("Enter value of k: "))
 
@@ -143,7 +143,7 @@ def main() -> None:
     # celsius_fahrenheit()
     # string_upper_lower()
     # harmonic_series()
-    binomial()
+    binominal()
 
 
 if __name__ == "__main__":

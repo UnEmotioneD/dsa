@@ -2,7 +2,7 @@ from circular_deque import CircularDeque
 from circular_queue import CircularQueue
 
 
-def run_cricular_queue():
+def run_circular_queue():
     que = CircularQueue(8)
     que.enqueue("A")
     que.enqueue("B")
@@ -24,7 +24,7 @@ def run_cricular_queue():
     print(f"\tG H I inserted {que}")
 
 
-def run_cricular_dequeue():
+def run_circular_dequeue():
     deq = CircularDeque()
 
     for i in range(9):
@@ -51,9 +51,9 @@ def run_cricular_dequeue():
 
 
 def main() -> None:
-    run_cricular_queue()
+    run_circular_queue()
     print("\n", "=" * 70, "\n")
-    run_cricular_dequeue()
+    run_circular_dequeue()
 
 
 if __name__ == "__main__":
