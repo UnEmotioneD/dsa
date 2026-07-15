@@ -1,80 +1,52 @@
-# Using Nodemon with Python
+# Data Structures and Algorithms
 
-- Nodemon is a utility that monitors changes in your source code and automatically restarts your application.
-  While it's primarily used for Node.js applications, you can also use it to streamline Python development.
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Basic Usage](#basic-usage)
-- [Monitoring Multiple File Extensions](#monitoring-multiple-file-extensions)
-- [Creating a Configuration File](#creating-a-configuration-file)
-- [Ignoring Files and Directories](#ignoring-files-and-directories)
-- [Troubleshooting](#troubleshooting)
-- [Conclusion](#conclusion)
-- [Virtual Environments](#how-to-use-python-virtual-environment)
+- [Chap01](./chap01): Recursive function
+- [Chap03](./chap02): OOP
+- [Chap03](./chap03): Array list
+- [Chap04](./chap04): Stack
+- [Chap05](./chap05): Circular structure
+- [Chap06](./chap06): Linked structure
+- [Chap07](./chap07): Sorting Algorithms
+- [Chap08](./chap08): Binary search tree
 
 ---
 
-## Prerequisites
+## [Nodemon](https://nodemon.io/)
 
-- **Node.js and npm**: Ensure that [Node.js](https://nodejs.org/) and npm are installed on your system.
+A utility that monitors changes in your source code and automatically restarts
+your application. Mainly for **Node.js**.
 
----
+### Prerequisite
 
-## Installation
+Download and Install **[Node.js](https://nodejs.org/)**.
 
-Install Nodemon globally using npm:
+### Install
+
+Install globally to use it everywhere without creating `node_modules/`.
 
 ```sh
 npm install -g nodemon
-```
 
-Verify the installation:
-
-```sh
 nodemon --version
 ```
 
-or with `-v`
+### Configure
 
----
+For advanced configurations, create a `nodemon.json` file inside your project.
 
-## Basic Usage
+> **NOTE**
+>
+> Nodemon will not work properly if it uses `JSONC` extension.
 
-To use Nodemon with a Python script, run:
-
-```sh
-nodemon --exec python3 --ext py binary_tree.py
-```
-
-Now, Nodemon will restart whenever `.py` file changes.
-
----
-
-## Monitoring Multiple File Extensions
-
-If your project includes other file types (e.g., `.html`, `.css`) that should trigger a restart, specify them:
-
-```sh
-nodemon --exec python3 --ext py,html,css binary_tree.py
-```
-
----
-
-## Creating a Configuration File
-
-For advanced configurations, create a `nodemon.json` file in your project directory.
-
-## Sample `nodemon.json`
+Watch **python** files under **chap08** directory and when change is detected,
+**exec** the command. And **clear** the terminal on every run.
 
 ```json
 {
-  "watch": ["*.py"],
+  "watch": ["chap08"],
   "ext": "py",
   "ignore": [],
-  "exec": "python3 ./binary_tree.py",
+  "exec": "python3 ./chap08/binary_tree.py",
   "events": {
     "start": "clear"
   }
@@ -87,53 +59,12 @@ For advanced configurations, create a `nodemon.json` file in your project direct
 - `exec`: Command to run on changes.
 - `start`: Command to run on start.
 
-## Running with Configuration File
+### Run
 
-Simply execute:
+From where the **nodemon.json** is at:
 
 ```sh
 nodemon
 ```
 
-Nodemon will use the settings from `nodemon.json`.
-
----
-
-## Ignoring Files and Directories
-
-Exclude files or directories using the `--ignore` flag:
-
-```sh
-nodemon --exec python3 --ext py --ignore tests/* binary_tree.py
-```
-
-Or specify them in `nodemon.json` under the `ignore` key.
-
----
-
-## Troubleshooting
-
-## Nodemon Command Not Found
-
-if you encounter a "command not found" error:
-
-- Ensure Nodemon is installed globally.
-- Add npm global packages to your PATH.
-- Alternatively, run Nodemon with `npx`:
-
-```sh
-npx nodemon --exc python3 --ext py binary_tree.py
-```
-
-## Changes Not Detected
-
-- Confirm you're in the correct directory.
-- Verify the file extensions with `--ext`.
-- Check file permissions and paths.
-
----
-
-## Conclusion
-
-Using Nodemon with Python automates the restart process of your scripts upon code changes, enhancing your development workflow.
-Customize Nodemon to fit your project's needs and focus more on coding.
+Enter `rs` to restart without changing the codes.
