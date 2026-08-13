@@ -3,7 +3,10 @@ __pycache__/
 .DS_Store
 .localized
 
-.idea/
+.idea/*
 *.iml
 
-.vscode/
+.vscode/*
+!.vscode/settings.json
+
+nodemon.json
