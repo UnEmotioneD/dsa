@@ -1,7 +1,12 @@
+import random
 import time
 
 
-def partition(arr, low, high):
+def swap(arr: list[int], i: int, j: int) -> None:
+    arr[i], arr[j] = arr[j], arr[i]
+
+
+def partition(arr: list[int], low: int, high: int) -> int:
     # Choose the pivot
     pivot = arr[high]
 
@@ -22,11 +27,7 @@ def partition(arr, low, high):
     return i + 1
 
 
-def swap(arr, i, j):
-    arr[i], arr[j] = arr[j], arr[i]
-
-
-def quick_sort(arr, low, high):
+def quick_sort(arr: list[int], low: int, high: int) -> None:
     if low < high:
         # Partition return index of pivot
         part_index = partition(arr, low, high)
@@ -37,17 +38,26 @@ def quick_sort(arr, low, high):
         quick_sort(arr, part_index + 1, high)
 
 
-if __name__ == "__main__":
-    array = [4, 3, 8, 1, 2, 5, 9, 7, 0, 6]
-    LENGTH = len(array)
-
-    start = time.time()
-    quick_sort(array, 0, LENGTH - 1)
-    end = time.time()
-
-    for val in array:
-        print(val, end=" ")
-        if val == array[LENGTH - 1]:
+def print_array(arr: list[int]) -> None:
+    for val in arr:
+        print(val, end=' ')
+        if val == arr[LENGTH - 1]:
             print()
 
-    print(f"Time took: {end - start}")
+
+if __name__ == '__main__':
+    array: list[int] = list[int](range(10))
+    random.shuffle(array)
+    LENGTH: int = len(array)
+
+    print('Before sort: ')
+    print_array(array)
+
+    start: float = time.time()
+    quick_sort(array, 0, LENGTH - 1)
+    end: float = time.time()
+
+    print('\nAfter sort: ')
+    print_array(array)
+
+    print(f'\nTime took: {end - start}')
