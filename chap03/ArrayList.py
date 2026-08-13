@@ -1,8 +1,11 @@
+from typing import override
+
+
 class ArrayList:
-    def __init__(self, capacity=100):
-        self.capacity = capacity
-        self.array = [None] * capacity
-        self.size = 0
+    def __init__(self, capacity: int = 100):
+        self.capacity: int = capacity
+        self.array: list[str | None] = [None] * capacity
+        self.size: int = 0
 
     def is_empty(self):
         return self.size == 0
@@ -10,23 +13,23 @@ class ArrayList:
     def is_full(self):
         return self.size == self.capacity
 
-    def get_entry(self, pos):
+    def get_entry(self, pos: int) -> str | None:
         if 0 <= pos < self.size:
             return self.array[pos]
         return None
 
-    def insert(self, pos, e):
+    def insert(self, pos: int, e: str) -> None:
         if not self.is_full() and 0 <= pos <= self.size:
             for i in range(self.size, pos, -1):
                 self.array[i] = self.array[i - 1]
             self.array[pos] = e
             self.size += 1
 
-    def replace(self, pos, e):
+    def replace(self, pos: int, e: str) -> None:
         if 0 <= pos < self.size:
             self.array[pos] = e
 
-    def delete(self, pos):
+    def delete(self, pos: int) -> str | None:
         if not self.is_empty() and 0 <= pos < self.size:
             e = self.array[pos]
             for i in range(pos, self.size - 1):
@@ -35,5 +38,6 @@ class ArrayList:
             self.size -= 1
             return e
 
+    @override
     def __str__(self):
         return str(self.array[: self.size])
