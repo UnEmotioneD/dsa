@@ -13,14 +13,14 @@ TODO:
 
 
 class Node:
-    def __init__(self, data: int) -> None:
+    def __init__(self, data: int):
         self.data: int = data
         self.left: Node | None = None
         self.right: Node | None = None
 
 
-def create_tree(numbers: list[int]) -> Node:
-    root: Node = Node(numbers[0])
+def create_tree(numbers: list[int]):
+    root = Node(numbers[0])
 
     for number in numbers[1:]:
         root = _insert(root, number)
@@ -28,7 +28,7 @@ def create_tree(numbers: list[int]) -> Node:
     return root
 
 
-def in_order(node: Node | None, res: list[int]) -> None:
+def in_order(node: Node | None, res: list[int]):
     if node is None:
         return
 
@@ -37,9 +37,9 @@ def in_order(node: Node | None, res: list[int]) -> None:
     in_order(node.right, res)
 
 
-def get_search_no(numbers: list[int]) -> int:
-    low: int = min(numbers)
-    high: int = max(numbers)
+def get_search_no(numbers: list[int]):
+    low = min(numbers)
+    high = max(numbers)
 
     while True:
         try:
@@ -53,7 +53,7 @@ def get_search_no(numbers: list[int]) -> int:
     return search_no
 
 
-def search_node(node: Node | None, search_no: int) -> None:
+def search_node(node: Node | None, search_no: int):
     if node is None:
         print('Not found')
         return
@@ -70,7 +70,7 @@ def search_node(node: Node | None, search_no: int) -> None:
         search_node(node.right, search_no)
 
 
-def _insert(node: Node | None, data: int) -> Node:
+def _insert(node: Node | None, data: int):
     if node is None:
         return Node(data)
 
@@ -82,10 +82,10 @@ def _insert(node: Node | None, data: int) -> Node:
     return node
 
 
-def main() -> None:
-    # numbers: list[int] = list(range(10))
+def main():
+    # numbers = list(range(10))
     # random.shuffle(numbers)
-    numbers: list[int] = [5, 8, 7, 0, 4, 9, 3, 2, 6, 1]  # fixed order for testing
+    numbers = [5, 8, 7, 0, 4, 9, 3, 2, 6, 1]  # fixed order for testing
     res: list[int] = []
 
     print('Original: ')
@@ -98,7 +98,7 @@ def main() -> None:
     print('After in_order sorting: ')
     print(res, end='\n\n')
 
-    search_no: int = get_search_no(numbers)
+    search_no = get_search_no(numbers)
     search_node(root, search_no)
 
 
