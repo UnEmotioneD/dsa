@@ -70,32 +70,32 @@ def search_node(node: Node | None, search_no: int) -> None:
         search_node(node.right, search_no)
 
 
-def _insert(root: Node | None, data: int) -> Node:
-    if root is None:
+def _insert(node: Node | None, data: int) -> Node:
+    if node is None:
         return Node(data)
 
-    if data < root.data:
-        root.left = _insert(root.left, data)
+    if data < node.data:
+        node.left = _insert(node.left, data)
     else:
-        root.right = _insert(root.right, data)
+        node.right = _insert(node.right, data)
 
-    return root
+    return node
 
 
 def main() -> None:
-    # numbers: list[int] = list[int](range(10))
+    # numbers: list[int] = list(range(10))
     # random.shuffle(numbers)
     numbers: list[int] = [5, 8, 7, 0, 4, 9, 3, 2, 6, 1]  # fixed order for testing
     res: list[int] = []
 
-    print('Before sorted: ')
+    print('Original: ')
     print(numbers, end='\n\n')
 
     root: Node = create_tree(numbers)
 
     in_order(root, res)
 
-    print('After in_order: ')
+    print('After in_order sorting: ')
     print(res, end='\n\n')
 
     search_no: int = get_search_no(numbers)
