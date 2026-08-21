@@ -155,7 +155,8 @@ def main():
         in_order(root, res)
 
         print('Sorted: ')
-        print(res, end='\n\n')
+        print(res, end=', ')
+        print(f'Root: {root.data}', end='\n\n')
 
         search_no = get_search_no(res)
         is_found = search_node(root, search_no)
