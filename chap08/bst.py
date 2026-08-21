@@ -59,10 +59,10 @@ def get_search_no(numbers: list[int]):
         try:
             search_no = int(input(f'Enter number to search [{low} ~ {high}]: '))
 
-            if search_no >= low and search_no <= high:
+            if search_no in numbers:
                 break
             else:
-                print(f'Choose number between {low} ~ {high}:')
+                print(f'{search_no} is not in the list.', end='\n\n')
 
         except ValueError:
             print('Input integer type', end='\n\n')
@@ -70,21 +70,21 @@ def get_search_no(numbers: list[int]):
     return search_no
 
 
-def search_node(node: Node | None, search_no: int):
+def search_node(node: Node | None, search_no: int) -> bool:
     if node is None:
-        print('Not found')
-        return
+        print(f'\n {search_no} is not found.', end='\n\n')
+        return False
 
     if search_no == node.data:
         print(f'Reached: {node.data}')
-        return
+        return True
     else:
         print(f'Traversing: {node.data}')
 
     if search_no < node.data:
-        search_node(node.left, search_no)
+        return search_node(node.left, search_no)
     else:
-        search_node(node.right, search_no)
+        return search_node(node.right, search_no)
 
 
 def _replace(curr: Node):
@@ -158,7 +158,10 @@ def main():
         print(res, end='\n\n')
 
         search_no = get_search_no(res)
-        search_node(root, search_no)
+        is_found = search_node(root, search_no)
+
+        if not is_found:
+            continue
 
         if prompt_del(search_no):
             root = del_node(root, search_no)
