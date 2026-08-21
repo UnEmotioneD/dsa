@@ -1,5 +1,7 @@
 """
-Binary Tree
+Binary Search Tree
+
+Orders left child node to be smaller then parent node.
 
 TODO:
     - [x] create and shuffle the list
@@ -7,7 +9,7 @@ TODO:
     - [x] sort with in_order traverse
     - [x] get user input to search and delete
     - [x] on search print each node it goes through
-    - [ ] node deletion
+    - [x] node deletion
     - [ ] print binary tree in tree style
 """
 
@@ -17,6 +19,18 @@ class Node:
         self.data: int = data
         self.left: Node | None = None
         self.right: Node | None = None
+
+
+def _insert(node: Node | None, data: int):
+    if node is None:
+        return Node(data)
+
+    if data < node.data:
+        node.left = _insert(node.left, data)
+    else:
+        node.right = _insert(node.right, data)
+
+    return node
 
 
 def create_tree(numbers: list[int]):
@@ -98,18 +112,6 @@ def del_node(root: Node | None, key: int):
         root.right = del_node(root.right, succ.data)
 
     return root
-
-
-def _insert(node: Node | None, data: int):
-    if node is None:
-        return Node(data)
-
-    if data < node.data:
-        node.left = _insert(node.left, data)
-    else:
-        node.right = _insert(node.right, data)
-
-    return node
 
 
 def main():
