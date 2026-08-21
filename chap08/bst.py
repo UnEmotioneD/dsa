@@ -15,20 +15,22 @@ TODO:
 
 
 class Node:
-    def __init__(self, value: int):
+    def __init__(self, value: int, level: int = 0, gap: int = 0):
         self.value: int = value
         self.left: Node | None = None
         self.right: Node | None = None
+        self.level: int = level
+        self.gap: int = gap
 
 
-def _insert(node: Node | None, value: int):
+def _insert(node: Node | None, value: int, level: int):
     if node is None:
-        return Node(value)
+        return Node(value, level)
 
     if value < node.value:
-        node.left = _insert(node.left, value)
+        node.left = _insert(node.left, value, node.level + 1)
     else:
-        node.right = _insert(node.right, value)
+        node.right = _insert(node.right, value, node.level + 1)
 
     return node
 
@@ -37,7 +39,7 @@ def create_tree(numbers: list[int]):
     root = Node(numbers[0])
 
     for number in numbers[1:]:
-        root = _insert(root, number)
+        root = _insert(root, number, root.level)
 
     return root
 
@@ -48,6 +50,11 @@ def in_order(root: Node | None, result: list[int]):
 
     in_order(root.left, result)  # traverse left first
     result.append(root.value)
+
+    print(f'root.vale: {root.value}')
+    print(f'root.level: {root.level}')
+    print()
+
     in_order(root.right, result)
 
 
