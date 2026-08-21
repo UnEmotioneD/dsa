@@ -57,10 +57,13 @@ def get_search_no(numbers: list[int]):
 
     while True:
         try:
-            search_no: int = int(input(f'Enter number to search [{low} ~ {high}]: '))
+            search_no = int(input(f'Enter number to search [{low} ~ {high}]: '))
 
             if search_no >= low and search_no <= high:
                 break
+            else:
+                print(f'Choose number between {low} ~ {high}:')
+
         except ValueError:
             print('Input integer type', end='\n\n')
 
@@ -72,7 +75,7 @@ def search_node(node: Node | None, search_no: int):
         print('Not found')
         return
 
-    if search_no is node.data:
+    if search_no == node.data:
         print(f'Reached: {node.data}')
         return
     else:
@@ -84,8 +87,8 @@ def search_node(node: Node | None, search_no: int):
         search_node(node.right, search_no)
 
 
-def _get_succ(curr: Node):
-    assert curr.right is not None, '_get_succ() curr.right is None'
+def _replace(curr: Node):
+    assert curr.right is not None, '_replace() curr.right is None'
     curr = curr.right
 
     while curr.left is not None:
@@ -107,39 +110,58 @@ def del_node(root: Node | None, key: int):
         if root.right is None:
             return root.left
 
-        succ: Node = _get_succ(root)
+        succ: Node = _replace(root)
         root.data = succ.data
         root.right = del_node(root.right, succ.data)
 
     return root
 
 
+def prompt_del(key: int):
+    while True:
+        try:
+            print()
+            foo = str(input(f'Delete node with {key}? [Y/n]: '))
+
+            if foo.lower() == 'y' or foo == '':
+                print()
+                return True
+            elif foo == 'n':
+                print('Cancel node deletion.', end='\n\n')
+                return False
+            else:
+                print('Enter `y` or `n`.')
+
+        except ValueError:
+            print('Enter string type.')
+
+
 def main():
     # numbers = list(range(10))
     # random.shuffle(numbers)
     numbers = [5, 8, 7, 0, 4, 9, 3, 2, 6, 1]  # fixed order for testing
-    res: list[int] = []
 
     print('Original: ')
     print(numbers, end='\n\n')
 
     root: Node | None = create_tree(numbers)
 
-    in_order(root, res)
+    while True:
+        if root is None:
+            print('The binary search tree is empty.')
+            break
 
-    print('After in_order sorting: ')
-    print(res, end='\n\n')
+        res: list[int] = []
+        in_order(root, res)
 
-    search_no = get_search_no(numbers)
-    search_node(root, search_no)
+        print('Sorted: ')
+        print(res, end='\n\n')
 
-    root = del_node(root, search_no)
+        search_no = get_search_no(res)
+        search_node(root, search_no)
 
-    res = []
-    in_order(root, res)
-
-    print('After deletion: ')
-    print(res, end='\n\n')
+        if prompt_del(search_no):
+            root = del_node(root, search_no)
 
 
 if __name__ == '__main__':
