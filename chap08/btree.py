@@ -70,6 +70,36 @@ def search_node(node: Node | None, search_no: int):
         search_node(node.right, search_no)
 
 
+def _get_succ(curr: Node):
+    assert curr.right is not None, '_get_succ() curr.right is None'
+    curr = curr.right
+
+    while curr.left is not None:
+        curr = curr.left
+    return curr
+
+
+def del_node(root: Node | None, key: int):
+    if root is None:
+        return
+
+    if root.data > key:
+        root.left = del_node(root.left, key)
+    elif root.data < key:
+        root.right = del_node(root.right, key)
+    else:
+        if root.left is None:
+            return root.right
+        if root.right is None:
+            return root.left
+
+        succ: Node = _get_succ(root)
+        root.data = succ.data
+        root.right = del_node(root.right, succ.data)
+
+    return root
+
+
 def _insert(node: Node | None, data: int):
     if node is None:
         return Node(data)
@@ -91,7 +121,7 @@ def main():
     print('Original: ')
     print(numbers, end='\n\n')
 
-    root: Node = create_tree(numbers)
+    root: Node | None = create_tree(numbers)
 
     in_order(root, res)
 
@@ -100,6 +130,14 @@ def main():
 
     search_no = get_search_no(numbers)
     search_node(root, search_no)
+
+    root = del_node(root, search_no)
+
+    res = []
+    in_order(root, res)
+
+    print('After deletion: ')
+    print(res, end='\n\n')
 
 
 if __name__ == '__main__':
