@@ -15,20 +15,20 @@ TODO:
 
 
 class Node:
-    def __init__(self, data: int):
-        self.data: int = data
+    def __init__(self, value: int):
+        self.value: int = value
         self.left: Node | None = None
         self.right: Node | None = None
 
 
-def _insert(node: Node | None, data: int):
+def _insert(node: Node | None, value: int):
     if node is None:
-        return Node(data)
+        return Node(value)
 
-    if data < node.data:
-        node.left = _insert(node.left, data)
+    if value < node.value:
+        node.left = _insert(node.left, value)
     else:
-        node.right = _insert(node.right, data)
+        node.right = _insert(node.right, value)
 
     return node
 
@@ -42,82 +42,52 @@ def create_tree(numbers: list[int]):
     return root
 
 
-def in_order(node: Node | None, res: list[int]):
-    if node is None:
+def in_order(root: Node | None, result: list[int]):
+    if root is None:
         return
 
-    in_order(node.left, res)  # traverse left first
-    res.append(node.data)
-    in_order(node.right, res)
+    in_order(root.left, result)  # traverse left first
+    result.append(root.value)
+    in_order(root.right, result)
 
 
-def get_search_no(numbers: list[int]):
+def prompt_search(numbers: list[int]):
     low = min(numbers)
     high = max(numbers)
 
     while True:
         try:
-            search_no = int(input(f'Enter number to search [{low} ~ {high}]: '))
+            key = int(input(f'Enter number to search [{low} ~ {high}]: '))
 
-            if search_no in numbers:
+            if key in numbers:
                 break
             else:
-                print(f'{search_no} is not in the list.', end='\n\n')
+                print(f'{key} is not in the list.', end='\n\n')
 
         except ValueError:
             print('Input integer type', end='\n\n')
 
-    return search_no
+    return key
 
 
-def search_node(node: Node | None, search_no: int) -> bool:
-    if node is None:
-        print(f'\n {search_no} is not found.', end='\n\n')
+def search_node(root: Node | None, key: int) -> bool:
+    if root is None:
+        print(f'\n {key} is not found.', end='\n\n')
         return False
 
-    if search_no == node.data:
-        print(f'Reached: {node.data}')
+    if key == root.value:
+        print(f'Reached: {root.value}')
         return True
     else:
-        print(f'Traversing: {node.data}')
+        print(f'Traversing: {root.value}')
 
-    if search_no < node.data:
-        return search_node(node.left, search_no)
+    if key < root.value:
+        return search_node(root.left, key)
     else:
-        return search_node(node.right, search_no)
+        return search_node(root.right, key)
 
 
-def _replace(curr: Node):
-    assert curr.right is not None, '_replace() curr.right is None'
-    curr = curr.right
-
-    while curr.left is not None:
-        curr = curr.left
-    return curr
-
-
-def del_node(root: Node | None, key: int):
-    if root is None:
-        return
-
-    if root.data > key:
-        root.left = del_node(root.left, key)
-    elif root.data < key:
-        root.right = del_node(root.right, key)
-    else:
-        if root.left is None:
-            return root.right
-        if root.right is None:
-            return root.left
-
-        succ: Node = _replace(root)
-        root.data = succ.data
-        root.right = del_node(root.right, succ.data)
-
-    return root
-
-
-def prompt_del(key: int):
+def confirm_del(key: int):
     while True:
         try:
             print()
@@ -136,6 +106,36 @@ def prompt_del(key: int):
             print('Enter string type.')
 
 
+def _get_successor(curr: Node):
+    assert curr.right is not None, '_get_successor() curr.right is None'
+    curr = curr.right
+
+    while curr.left is not None:
+        curr = curr.left
+    return curr
+
+
+def del_node(root: Node | None, key: int):
+    if root is None:
+        return
+
+    if root.value > key:
+        root.left = del_node(root.left, key)
+    elif root.value < key:
+        root.right = del_node(root.right, key)
+    else:
+        if root.left is None:
+            return root.right
+        if root.right is None:
+            return root.left
+
+        successor: Node = _get_successor(root)
+        root.value = successor.value
+        root.right = del_node(root.right, successor.value)
+
+    return root
+
+
 def main():
     # numbers = list(range(10))
     # random.shuffle(numbers)
@@ -151,21 +151,19 @@ def main():
             print('The binary search tree is empty.')
             break
 
-        res: list[int] = []
-        in_order(root, res)
+        result: list[int] = []
+        in_order(root, result)
 
         print('Sorted: ')
-        print(res, end=', ')
-        print(f'Root: {root.data}', end='\n\n')
+        print(result, end=', ')
+        print(f'Root: {root.value}', end='\n\n')
 
-        search_no = get_search_no(res)
-        is_found = search_node(root, search_no)
-
-        if not is_found:
+        key = prompt_search(result)
+        if not search_node(root, key):
             continue
 
-        if prompt_del(search_no):
-            root = del_node(root, search_no)
+        if confirm_del(key):
+            root = del_node(root, key)
 
 
 if __name__ == '__main__':
