@@ -13,24 +13,24 @@ TODO:
     - [ ] print binary tree in tree style
 """
 
+import random
+
 
 class Node:
     def __init__(self, value: int, level: int = 0, gap: int = 0):
         self.value: int = value
         self.left: Node | None = None
         self.right: Node | None = None
-        self.level: int = level
-        self.gap: int = gap
 
 
-def _insert(node: Node | None, value: int, level: int):
+def _insert(node: Node | None, value: int):
     if node is None:
-        return Node(value, level)
+        return Node(value)
 
     if value < node.value:
-        node.left = _insert(node.left, value, node.level + 1)
+        node.left = _insert(node.left, value)
     else:
-        node.right = _insert(node.right, value, node.level + 1)
+        node.right = _insert(node.right, value)
 
     return node
 
@@ -39,7 +39,7 @@ def create_tree(numbers: list[int]):
     root = Node(numbers[0])
 
     for number in numbers[1:]:
-        root = _insert(root, number, root.level)
+        root = _insert(root, number)
 
     return root
 
@@ -50,11 +50,6 @@ def in_order(root: Node | None, result: list[int]):
 
     in_order(root.left, result)  # traverse left first
     result.append(root.value)
-
-    print(f'root.vale: {root.value}')
-    print(f'root.level: {root.level}')
-    print()
-
     in_order(root.right, result)
 
 
@@ -144,9 +139,8 @@ def del_node(root: Node | None, key: int):
 
 
 def main():
-    # numbers = list(range(10))
-    # random.shuffle(numbers)
-    numbers = [5, 8, 7, 0, 4, 9, 3, 2, 6, 1]  # fixed order for testing
+    numbers = list(range(10))
+    random.shuffle(numbers)
 
     print('Original: ')
     print(numbers, end='\n\n')
