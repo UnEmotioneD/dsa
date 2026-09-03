@@ -46,9 +46,9 @@ def print_array(arr: list[int]) -> None:
 
 
 if __name__ == '__main__':
-    array: list[int] = list[int](range(10))
+    array = list(range(10))
     random.shuffle(array)
-    LENGTH: int = len(array)
+    LENGTH = len(array)
 
     print('Before sort: ')
     print_array(array)
